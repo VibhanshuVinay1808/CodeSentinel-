@@ -169,6 +169,8 @@ elif page == "Bug Detector":
                             with torch.no_grad():
                                 outputs = bug_model(**inputs)
                                 logits = outputs.logits
+                                # Move to CPU for post-processing
+                                logits = logits.cpu()
                                 probs = torch.softmax(logits, dim=-1)
                                 pred = torch.argmax(probs, dim=-1).item()
                                 confidence = probs[0][pred].item()
@@ -236,9 +238,11 @@ elif page == "Test Generator":
                         
                         # Generate
                         with torch.no_grad():
-                            outputs = test_model.generate(inputs['input_ids'], max_length=256, num_beams=4)
+                            outputs = test_model.generate(inputs['input_ids'], max_length=256, num_beams=4, device=device)
                         
-                        # Decode
+                        # Decode (move outputs to CPU if needed)
+                        if outputs.device.type != 'cpu':
+                            outputs = outputs.cpu()
                         generated_test = test_tok.decode(outputs[0], skip_special_tokens=True)
                         
                         st.success("✅ Tests Generated!")
@@ -285,9 +289,11 @@ elif page == "Specification Generator":
                         
                         # Generate
                         with torch.no_grad():
-                            outputs = spec_model.generate(inputs['input_ids'], max_length=256, num_beams=4)
+                            outputs = spec_model.generate(inputs['input_ids'], max_length=256, num_beams=4, device=device)
                         
-                        # Decode
+                        # Decode (move outputs to CPU if needed)
+                        if outputs.device.type != 'cpu':
+                            outputs = outputs.cpu()
                         generated_spec = spec_tok.decode(outputs[0], skip_special_tokens=True)
                         
                         st.success("✅ Specification Generated!")
