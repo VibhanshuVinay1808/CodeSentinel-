@@ -16,8 +16,9 @@ st.markdown("AI-powered code analysis for test generation, bug detection, and sp
 def load_bug_model():
     """Load bug detection model (codebert_bug_v1)"""
     try:
-        tokenizer = AutoTokenizer.from_pretrained("./codebert_bug_v1")
-        model = AutoModelForSequenceClassification.from_pretrained("./codebert_bug_v1", num_labels=2)
+        model_path = "./codebert_bug_v1/checkpoint-6900"
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=2)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading bug model: {e}")
@@ -27,8 +28,9 @@ def load_bug_model():
 def load_testgen_model():
     """Load test generation model (testgen_model)"""
     try:
-        tokenizer = AutoTokenizer.from_pretrained("./testgen_model")
-        model = T5ForConditionalGeneration.from_pretrained("./testgen_model")
+        model_path = "./testgen_model/checkpoint-4"
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        model = T5ForConditionalGeneration.from_pretrained(model_path)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading test gen model: {e}")
@@ -38,8 +40,9 @@ def load_testgen_model():
 def load_spec_model():
     """Load specification generation model (spec_model_json_v3)"""
     try:
-        tokenizer = AutoTokenizer.from_pretrained("./spec_model_json_v3")
-        model = T5ForConditionalGeneration.from_pretrained("./spec_model_json_v3")
+        model_path = "./spec_model_json_v3/checkpoint-224"
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        model = T5ForConditionalGeneration.from_pretrained(model_path)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading spec model: {e}")
