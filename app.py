@@ -238,7 +238,7 @@ elif page == "Test Generator":
                         
                         # Generate
                         with torch.no_grad():
-                            outputs = test_model.generate(inputs['input_ids'], max_length=256, num_beams=4, device=device)
+                            outputs = test_model.generate(inputs['input_ids'], max_length=256, num_beams=4)
                         
                         # Decode (move outputs to CPU if needed)
                         if outputs.device.type != 'cpu':
@@ -289,7 +289,7 @@ elif page == "Specification Generator":
                         
                         # Generate
                         with torch.no_grad():
-                            outputs = spec_model.generate(inputs['input_ids'], max_length=256, num_beams=4, device=device)
+                            outputs = spec_model.generate(inputs['input_ids'], max_length=256, num_beams=4)
                         
                         # Decode (move outputs to CPU if needed)
                         if outputs.device.type != 'cpu':
