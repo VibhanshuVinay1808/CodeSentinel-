@@ -19,6 +19,9 @@ def load_bug_model():
         model_path = "./codebert_bug_v1/checkpoint-6900"
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=2)
+        # Move model to device
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = model.to(device)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading bug model: {e}")
@@ -31,6 +34,9 @@ def load_testgen_model():
         model_path = "./testgen_model/checkpoint-4"
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = T5ForConditionalGeneration.from_pretrained(model_path)
+        # Move model to device
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = model.to(device)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading test gen model: {e}")
@@ -43,6 +49,9 @@ def load_spec_model():
         model_path = "./spec_model_json_v3/checkpoint-224"
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = T5ForConditionalGeneration.from_pretrained(model_path)
+        # Move model to device
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = model.to(device)
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading spec model: {e}")
