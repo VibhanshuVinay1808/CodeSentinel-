@@ -1,0 +1,166 @@
+# Virtual Environment# Virtual Environment
+
+.venv/.venv/
+
+.venv311/venv/
+
+venv/env/
+
+env/ENV/
+
+ENV/
+
+# Python
+
+# Python__pycache__/
+
+__pycache__/*.py[cod]
+
+*.py[cod]*$py.class
+
+*$py.class*.so
+
+*.so.Python
+
+.Pythonbuild/
+
+build/develop-eggs/
+
+develop-eggs/dist/
+
+dist/downloads/
+
+downloads/eggs/
+
+eggs/.eggs/
+
+.eggs/lib/
+
+lib/lib64/
+
+lib64/parts/
+
+parts/sdist/
+
+sdist/var/
+
+var/wheels/
+
+wheels/pip-wheel-metadata/
+
+pip-wheel-metadata/share/python-wheels/
+
+share/python-wheels/*.egg-info/
+
+*.egg-info/.installed.cfg
+
+.installed.cfg*.egg
+
+*.eggMANIFEST
+
+MANIFEST
+
+# IDE
+
+# IDE.vscode/
+
+.vscode/.idea/
+
+.idea/*.swp
+
+*.swp*.swo
+
+*.swo*~
+
+*~.DS_Store
+
+.DS_Store
+
+# Data & Models (Large files)
+
+# Data & Models (Large files - Keep local only)models/
+
+models/*.bin
+
+*.bin*.pt
+
+*.pt*.pth
+
+*.pthcheckpoint-*/
+
+checkpoint-*/trained_models/
+
+trained_models/
+
+codebert_bug/# Cache & Temp
+
+codebert_bug_v1/.cache/
+
+codebert_bug_java/*.cache
+
+codet5_testgen/.pytest_cache/
+
+spec_model/.mypy_cache/
+
+spec_model_json/.dmypy.json
+
+spec_model_json_v2/dmypy.json
+
+spec_model_json_v3/
+
+testgen_model/# Hugging Face cache
+
+.huggingface/
+
+# Cache & Temp
+
+.cache/# Data files (keep configs but ignore large data)
+
+*.cachedata/*.jsonl
+
+.pytest_cache/data/*.json
+
+.mypy_cache/data/*.csv
+
+.dmypy.json
+
+dmypy.json# Outputs
+
+outputs/
+
+# Hugging Face cacheresults/
+
+.huggingface/*.log
+
+
+
+# Large data files# Environment variables
+
+data/*.jsonl.env
+
+data/*.json.env.local
+
+data/*.csv
+
+# OS specific
+
+# OutputsThumbs.db
+
+outputs/.DS_Store
+
+results/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Virtual env directories
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
